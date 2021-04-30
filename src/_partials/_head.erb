@@ -1,0 +1,17 @@
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <% page_description = capture { page.data&.description&.strip } %>
+  <% description_capture = capture { page_description ||= metadata.description } %>
+  <%# TODO: Could definitely be cleaner  %>
+  <% title_capture = capture do %>
+    <% if page.data&.title&.present? %>
+      <%= page.data.title %> | <%= metadata.tagline %>
+    <% else %>
+      <%= metadata.title %> | <%= metadata.tagline %>
+    <% end %>
+  <% end.strip %>
+  <title><%= title_capture %></title>
+  <link rel="stylesheet" href="<%= webpack_path :css %>" />
+  <script src="<%= webpack_path :js %>" defer></script>
+</head>

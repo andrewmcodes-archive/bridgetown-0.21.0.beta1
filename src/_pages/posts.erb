@@ -1,0 +1,11 @@
+---
+layout: page
+title: Posts
+permalink: /posts/
+---
+
+<ul>
+  <% site.collections.posts.resources.take(4).each do |post| %>
+    <li><a href="<%= post.relative_url %>"><%= post.data.title %></a></li>
+  <% end %>
+</ul>

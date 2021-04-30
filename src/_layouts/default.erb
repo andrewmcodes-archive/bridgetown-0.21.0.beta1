@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%= render "head", metadata: site.metadata, page: page %>
+  <body class="flex flex-col w-full min-h-screen bg-skin-fill">
+    <%= render "navbar" %>
+    <main class="flex-grow my-8">
+      <%= yield %>
+    </main>
+    <%= render "footer", metadata: site.metadata %>
+  </body>
+</html>
